@@ -1,9 +1,9 @@
+load("@rules_cc//cc:defs.bzl", "cc_binary", "cc_test")
+
 cc_binary(
     name = "marble-core",
     srcs = ["src/main.cpp"],
-    hdrs = ["include/*.h"],
     includes = ["include"],
-    deps = [],
 )
 
 cc_test(
