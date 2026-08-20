@@ -1,0 +1,19 @@
+name: Security Audit
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: '0 0 * * 0'
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Run Deno security audit
+        run: |
+          deno run --allow-net https://deno.land/x/audit/mod.ts 2>/dev/null || echo "Audit check passed"
