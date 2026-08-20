@@ -1,0 +1,52 @@
+version: '3.8'
+
+services:
+  cockroach-1:
+    image: cockroachdb/cockroach:latest
+    container_name: marble-cockroach-1
+    command: start --insecure --listen-addr=0.0.0.0:26257 --http-addr=0.0.0.0:8080 --join=cockroach-1,cockroach-2,cockroach-3
+    ports:
+      - "26257:26257"
+      - "8080:8080"
+    environment:
+      COCKROACH_DATABASE: marble_db
+    volumes:
+      - cockroach_data_1:/cockroach/cockroach-data
+    networks:
+      - marble
+    depends_on:
+      - cockroach-2
+      - cockroach-3
+
+  cockroach-2:
+    image: cockroachdb/cockroach:latest
+    container_name: marble-cockroach-2
+    command: start --insecure --listen-addr=0.0.0.0:26257 --http-addr=0.0.0.0:8081 --join=cockroach-1,cockroach-2,cockroach-3
+    ports:
+      - "26258:26257"
+      - "8081:8080"
+    volumes:
+      - cockroach_data_2:/cockroach/cockroach-data
+    networks:
+      - marble
+
+  cockroach-3:
+    image: cockroachdb/cockroach:latest
+    container_name: marble-cockroach-3
+    command: start --insecure --listen-addr=0.0.0.0:26257 --http-addr=0.0.0.0:8082 --join=cockroach-1,cockroach-2,cockroach-3
+    ports:
+      - "26259:26257"
+      - "8082:8080"
+    volumes:
+      - cockroach_data_3:/cockroach/cockroach-data
+    networks:
+      - marble
+
+networks:
+  marble:
+    driver: bridge
+
+volumes:
+  cockroach_data_1:
+  cockroach_data_2:
+  cockroach_data_3:
