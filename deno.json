@@ -1,10 +1,13 @@
 {
   "workspace": [
     "./apps/control-plane",
-    "./apps/dashboard"
+    "./apps/dashboard",
+    "./apps/api"
   ],
   "tasks": {
     "control-plane": "deno task --cwd apps/control-plane start",
-    "dashboard": "deno task --cwd apps/dashboard start"
+    "dashboard": "deno task --cwd apps/dashboard start",
+    "api": "deno task --cwd apps/api dev"
   }
 }
+
