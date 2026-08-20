@@ -1,0 +1,17 @@
+{
+  "app": {
+    "title": "Marble",
+    "subtitle": "Build your digital infrastructure",
+    "ready": "Frontend is ready to build",
+    "api": "Connected to API at localhost:3000"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "settings": "Settings"
+  },
+  "language": {
+    "english": "English",
+    "hindi": "हिंदी"
+  }
+}
