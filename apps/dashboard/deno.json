@@ -1,0 +1,8 @@
+{
+  "name": "@marble/dashboard",
+  "version": "0.1.0",
+  "exports": "./main.ts",
+  "tasks": {
+    "start": "deno run main.ts"
+  }
+}

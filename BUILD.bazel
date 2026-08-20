@@ -1,0 +1,6 @@
+# Root package
+
+filegroup(
+    name = "srcs",
+    srcs = glob(["**/*"]),
+)
