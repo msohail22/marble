@@ -115,28 +115,6 @@ graph TB
     K8s -.->|Deploys| Proxy
     K8s -.->|Deploys| APIServer
     K8s -.->|Deploys| RealtimeWS
-
-    style LB fill:#ff6b6b
-    style TLS fill:#ff6b6b
-    style WAF fill:#ff6b6b
-    style RateLimit fill:#ff6b6b
-    style CacheEngine fill:#ff6b6b
-    style HTTPParse fill:#ff6b6b
-    style Proxy fill:#ff6b6b
-    
-    style Browser fill:#4ecdc4
-    style React fill:#4ecdc4
-    
-    style APIServer fill:#45b7d1
-    style RealtimeWS fill:#45b7d1
-    
-    style Redis fill:#f7b731
-    style ElectricSQL fill:#f7b731
-    style Kafka fill:#f7b731
-    
-    style Prometheus fill:#5f27cd
-    style Grafana fill:#5f27cd
-    style ClickHouse fill:#5f27cd
 ```
 
 ## Component Breakdown
