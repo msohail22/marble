@@ -3,8 +3,15 @@ import react from "npm:@vitejs/plugin-react@^4.0.0";
 import tailwindcss from "npm:tailwindcss@^3.0.0";
 import autoprefixer from "npm:autoprefixer@^10.0.0";
 
+import path from "node:path";
+
 export default defineConfig({
   plugins: [react()],
+  resolve: {
+    alias: {
+      "@marble/types": path.resolve(__dirname, "../../packages/types/mod.ts"),
+    },
+  },
   css: {
     postcss: {
       plugins: [tailwindcss, autoprefixer],

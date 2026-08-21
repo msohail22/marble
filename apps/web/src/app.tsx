@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useAtom } from "jotai";
 import { languageAtom } from "./atoms.ts";
+import type { HealthResponse } from "@marble/types";
 
 export function App() {
   const { t, i18n } = useTranslation();
   const [language, setLanguage] = useAtom(languageAtom);
+  const [healthStatus, setHealthStatus] = useState<HealthResponse | null>(null);
+
+  useEffect(() => {
+    fetch("/api/health")
+      .then((res) => res.json())
+      .then((data: HealthResponse) => setHealthStatus(data))
+      .catch(() => setHealthStatus(null));
+  }, []);
 
   const handleLanguageChange = (lang: "en" | "hi") => {
     setLanguage(lang);

@@ -1,41 +1,48 @@
 import { Hono } from "hono";
+import type {
+  HealthResponse,
+  ReadyResponse,
+  RootInfoResponse,
+  ApiErrorResponse,
+} from "@marble/types";
 
 export const app = new Hono();
 
 // Health check endpoint
 app.get("/health", (c) => {
-  return c.json({
+  const health: HealthResponse = {
     status: "ok",
     timestamp: new Date().toISOString(),
-    uptime: Deno.metrics().ops,
+    uptime: performance.now(),
     version: "0.1.0",
-  });
+  };
+  return c.json(health);
 });
 
 // Ready check endpoint
 app.get("/ready", (c) => {
-  return c.json({
+  const ready: ReadyResponse = {
     ready: true,
     timestamp: new Date().toISOString(),
-  });
+  };
+  return c.json(ready);
 });
 
 // Root endpoint
 app.get("/", (c) => {
-  return c.json({
+  const root: RootInfoResponse = {
     name: "Marble API",
     version: "0.1.0",
     docs: "/health",
-  });
+  };
+  return c.json(root);
 });
 
 // 404 handler
 app.notFound((c) => {
-  return c.json(
-    {
-      error: "Not Found",
-      path: c.req.path,
-    },
-    404
-  );
+  const errorResponse: ApiErrorResponse = {
+    error: "Not Found",
+    path: c.req.path,
+  };
+  return c.json(errorResponse, 404);
 });

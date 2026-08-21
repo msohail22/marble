@@ -3,7 +3,8 @@
     "./apps/control-plane",
     "./apps/dashboard",
     "./apps/api",
-    "./apps/web"
+    "./apps/web",
+    "./packages/types"
   ],
   "tasks": {
     "control-plane": "deno task --cwd apps/control-plane start",
