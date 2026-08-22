@@ -56,6 +56,8 @@ marble/
 3. Document API contracts in `apps/api/README.md`
 4. Document UI components in code comments
 5. Always verify both services run without errors
+6. **Mobile Responsiveness**: ALL web features, pages, and components MUST be fully mobile responsive across mobile, tablet, and desktop viewports (`sm:`, `md:`, `lg:`, `xl:` breakpoints).
+
 
 ---
 
@@ -534,10 +536,12 @@ cd apps/api && deno task dev  # API logs
 - [ ] Types defined in `packages/types/mod.ts`
 - [ ] Backend API implemented in `apps/api/src/routes/`
 - [ ] Frontend component created in `apps/web/src/components/`
-- [ ] Integration in main Dashboard component
+- [ ] Integration in main Dashboard / App component
+- [ ] Mobile responsive layout verified across mobile, tablet, and desktop screens
 - [ ] Both services start without errors
 - [ ] Documentation updated
 - [ ] No TypeScript errors (`deno task check`)
+
 
 ---
 
