@@ -1,4 +1,5 @@
 import { Hono } from "hono";
+import accountRouter from "./routes/account.ts";
 import type {
   HealthResponse,
   ReadyResponse,
@@ -7,6 +8,10 @@ import type {
 } from "@marble/types";
 
 export const app = new Hono();
+
+// Account management endpoints
+app.route("/account", accountRouter);
+app.route("/api/account", accountRouter);
 
 // Health check endpoint
 app.get("/health", (c) => {
@@ -46,3 +51,4 @@ app.notFound((c) => {
   };
   return c.json(errorResponse, 404);
 });
+

@@ -25,7 +25,9 @@ API proxy configured to forward `/api/*` to `http://localhost:3000/*`
 
 ## Structure
 
-- `src/app.tsx` - Main App component
+- `src/app.tsx` - Main App component with page routing
+- `src/pages/` - Page level components (`HomePage.tsx`, `ManageAccountPage.tsx`)
+- `src/components/` - Reusable UI components (`Dashboard.tsx`, `ProxyList.tsx`, `NanoserviceList.tsx`, `StatCard.tsx`)
 - `src/main.tsx` - Entry point with providers
 - `src/index.css` - Global styles + Tailwind
 - `src/atoms.ts` - Jotai state management atoms

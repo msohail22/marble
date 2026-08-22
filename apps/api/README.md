@@ -21,6 +21,15 @@ deno task check
 - `GET /health` - Health check (for monitoring)
 - `GET /ready` - Readiness check (for K8s)
 
+### Account Management
+- `GET /api/account/profile` - Get user profile details
+- `PUT /api/account/profile` - Update user profile details
+- `POST /api/account/password` - Change user password
+- `GET /api/account/keys` - List active API keys
+- `POST /api/account/keys` - Generate a new API key
+- `DELETE /api/account/keys/:id` - Revoke an API key
+
+
 ## Environment Variables
 
 - `PORT` - Server port (default: 3000)

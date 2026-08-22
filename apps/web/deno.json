@@ -21,11 +21,12 @@
     "jotai": "npm:jotai@^2.0.0",
     "i18next": "npm:i18next@^23.0.0",
     "react-i18next": "npm:react-i18next@^14.0.0",
-    "@marble/types": "../../packages/types/mod.ts"
+    "@marble/types": "../../packages/types/mod.ts",
+    "lucide-react": "npm:lucide-react@^0.294.0"
   },
   "tasks": {
-    "dev": "deno run --allow-net --allow-read --allow-env npm:vite",
-    "build": "deno run --allow-net --allow-read --allow-write --allow-env npm:vite build",
+    "dev": "deno run --allow-net --allow-read --allow-write --allow-env --allow-ffi --allow-sys npm:vite",
+    "build": "deno run --allow-net --allow-read --allow-write --allow-env --allow-ffi --allow-sys npm:vite build",
     "preview": "deno run --allow-net --allow-read --allow-env npm:vite preview",
     "check": "deno check src/main.tsx"
   }
