@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: cockroachdb
+  namespace: marble
+  labels:
+    app.kubernetes.io/name: cockroachdb
+    app.kubernetes.io/part-of: marble
+spec:
+  serviceName: cockroachdb-service
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cockroachdb
+  template:
+    metadata:
+      labels:
+        app: cockroachdb
+    spec:
+      containers:
+      - name: cockroachdb
+        image: cockroachdb/cockroach:v23.2.3
+        imagePullPolicy: IfNotPresent
+        args:
+        - start-single-node
+        - --insecure
+        - --http-addr=0.0.0.0:8080
+        - --listen-addr=0.0.0.0:26257
+        ports:
+        - containerPort: 26257
+          name: grpc
+        - containerPort: 8080
+          name: http
+        env:
+        - name: COCKROACH_DATABASE
+          value: marble_db
+        resources:
+          limits:
+            cpu: "1"
+            memory: "1Gi"
+          requests:
+            cpu: "250m"
+            memory: "512Mi"
+

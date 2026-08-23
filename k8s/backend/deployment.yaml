@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: marble-api
+  namespace: marble
+  labels:
+    app.kubernetes.io/name: marble-api
+    app.kubernetes.io/part-of: marble
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: marble-api
+  template:
+    metadata:
+      labels:
+        app: marble-api
+    spec:
+      containers:
+      - name: api
+        image: marble-api:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 3000
+          name: http
+        env:
+        - name: PORT
+          value: "3000"
+        - name: DATABASE_URL
+          value: "postgresql://root@cockroachdb-service.marble.svc.cluster.local:26257/marble_db?sslmode=disable"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 3000
+          initialDelaySeconds: 10
+          periodSeconds: 15
+        readinessProbe:
+          httpGet:
+            path: /ready
+            port: 3000
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        resources:
+          limits:
+            cpu: "500m"
+            memory: "512Mi"
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+
+

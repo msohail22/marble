@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: cockroachdb-service
+  namespace: marble
+  labels:
+    app.kubernetes.io/name: cockroachdb
+spec:
+  type: ClusterIP
+  ports:
+  - port: 26257
+    targetPort: 26257
+    name: grpc
+  - port: 8080
+    targetPort: 8080
+    name: http
+  selector:
+    app: cockroachdb
+
