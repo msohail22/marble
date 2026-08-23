@@ -25,8 +25,8 @@
     "lucide-react": "npm:lucide-react@^0.294.0"
   },
   "tasks": {
-    "dev": "deno run --allow-net --allow-read --allow-write --allow-env --allow-ffi --allow-sys npm:vite",
-    "build": "deno run --allow-net --allow-read --allow-write --allow-env --allow-ffi --allow-sys npm:vite build",
+    "dev": "deno run -A npm:vite",
+    "build": "deno run -A npm:vite build",
     "preview": "deno run --allow-net --allow-read --allow-env npm:vite preview",
     "check": "deno check src/main.tsx"
   }

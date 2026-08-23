@@ -1,0 +1,11 @@
+.git
+.github
+.vscode
+.idea
+node_modules
+dist
+bazel-*
+*.log
+.env*
+.DS_Store
+
