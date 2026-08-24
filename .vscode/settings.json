@@ -1,0 +1,21 @@
+{
+  "bazel.lsp.enabled": true,
+  "bazel.buildifierExecutable": "buildifier",
+  "starpls.server.path": "starpls",
+  "[starlark]": {
+    "editor.defaultFormatter": "BazelBuild.vscode-bazel",
+    "editor.formatOnSave": true,
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true
+  },
+  "files.associations": {
+    "BUILD": "starlark",
+    "BUILD.bazel": "starlark",
+    "MODULE.bazel": "starlark",
+    "WORKSPACE": "starlark",
+    "WORKSPACE.bazel": "starlark",
+    "*.bzl": "starlark",
+    "*.bazel": "starlark",
+    ".bazelrc": "properties"
+  }
+}
