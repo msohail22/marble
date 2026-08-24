@@ -1,14 +1,10 @@
 {
   "workspace": [
-    "./apps/control-plane",
-    "./apps/api",
     "./apps/web",
     "./packages/types"
   ],
   "nodeModulesDir": "auto",
   "tasks": {
-    "api": "deno task --cwd apps/api dev",
     "web": "deno task --cwd apps/web dev"
   }
 }
-

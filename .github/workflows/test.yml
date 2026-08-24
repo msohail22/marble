@@ -21,8 +21,6 @@ jobs:
       - name: Lint
         run: deno lint
       
-      - name: Type check API
-        run: deno task --cwd apps/api check
       
       - name: Type check Web
         run: deno task --cwd apps/web check
