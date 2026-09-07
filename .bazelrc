@@ -1,3 +1,0 @@
-# so like placeholder stuff
-build --cxxopt=-std=c++20
-build --compilation_mode=opt

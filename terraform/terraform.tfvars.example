@@ -1,4 +1,0 @@
-# Copy this file to terraform.tfvars and fill in your values
-# Example:
-# environment = "prod"
-# region      = "us-east-1"
