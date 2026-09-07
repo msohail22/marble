@@ -1,0 +1,45 @@
+# Dependencies
+node_modules/
+
+# Frontend build and local tooling output
+ui/dist/
+ui/.vite/
+ui/coverage/
+ui/*.tsbuildinfo
+
+# CMake and native build output
+build/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+compile_commands.json
+Makefile
+Testing/
+_deps/
+
+# Compiled objects and binaries
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.dylib
+*.dll
+*.exe
+*.out
+
+# Logs, runtime files, and local environment configuration
+*.log
+*.pid
+*.seed
+.env
+.env.*
+!.env.example
+
+# Editor and OS files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*~
